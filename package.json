@@ -1,0 +1,15 @@
+{
+  "name": "wistia-upload",
+  "version": "1.0.0",
+  "description": "Wistia uploader using Angular one framework.",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Mike",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2"
+  }
+}

@@ -1,0 +1,25 @@
+<div class="row">
+	<div class="col-md-12">
+		<input id="fileupload" type="file">
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="upload-progress-bar">
+			<div class="upload-progress-value" ng-style="{'width': wng.state.video.uploadProgress + '%'}"></div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="message" ng-if="wng.state.message.text" ng-bind="wng.state.message.text">
+		</div>
+	</div>
+</div>
+<div class="row" ng-repeat="video in wng.state.video.url">
+	<div class="col-md-12">
+		<iframe class="embedded-video" ng-if="wng.state.video.isUploaded && !wng.state.video.isUploading"
+			ng-src="{{ video }}" width="640px" height="360px">
+		</iframe>
+	</div>
+</div>
