@@ -3,22 +3,21 @@
 
   MainController.$inject = ['$scope'];
   function MainController ($scope) 	{
-  	var vm = this;
-  	vm.state = {
-  		message: {
-  			text: '',
-  			cssClass: ''
-  		},
-  		video: {
-	  		isUploading: false,
-	  		isUploaded: false,
-	  		value: 0,
-	  		url: [],
-	  	}
-  	};
+		var view=this;
+		view.state={
+			notification:{
+				text:""
+			},
+			video:{
+				isUploading:false,
+				isUploaded:false,
+				uploadProgress:0,
+				url:[]
+			}
+		},
 
-  	vm.setState = function (state) {
-  		vm.state = state;
+  	view.setState = function (state) {
+  		view.state = state;
   		$scope.$apply();
   	};
   }

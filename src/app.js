@@ -57,7 +57,7 @@
 
 		var state;
 
-		var msg=function(e,i){
+		var msg = function(e,i) {
 			return{
 				text:e || ""
 			}
@@ -67,7 +67,7 @@
 
 		var ele=angular.element(element[0].querySelector("#fileupload"));
 
-		var uploadOptions={
+		var options={
 				dataType:"json",
 				url:constant.api_url,
 				formData:{
@@ -79,7 +79,7 @@
 					return file.type.indexOf('video') !== -1 ? data.originalFiles.length>1 ? (
 						state.notification=msg(constant.notifications.multiple_file_error),
 						void viewModel.onUpdate(state)):(
-							state.video.isUploading=!0,
+							state.video.isUploading=true,
 							state.notification=msg(),
 							viewModel.onUpdate(state),
 							void data.submit()
@@ -94,24 +94,24 @@
 				},
 				done:function(e, data) {
 					data.result && data.result.hashed_id && (
-						state.video.isUploading=!1,
-						state.video.isUploaded=!0,
+						state.video.isUploading=false,
+						state.video.isUploaded=true,
 						state.video.url.push(sce.trustAsResourceUrl(constant.embed_url + data.result.hashed_id)),
 						state.notification = msg(
-							data.result.name + constant.notifications.partial_upload_success),
+							data.result.name + ' ' + constant.notifications.upload_success),
 						viewModel.onUpdate(state)
 					)
 				},
 				fail:function(e,data) {
-					state.video.isUploading=!1,
-					state.video.isUploaded=!1,
+					state.video.isUploading=false,
+					state.video.isUploaded=false,
 					state.notification=msg(constant.notifications.upload_error),
 					viewModel.onUpdate(state)
 				}
 		};
 		viewModel.$onInit=function() {
 			state=viewModel.state,
-			ele.fileupload(uploadOptions)
+			ele.fileupload(options)
 		}
 	}angular.module("wng-upload").component("wistiaUpload",{
 		templateUrl:"src/recipe/templates/wistia-upload.html",

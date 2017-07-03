@@ -4,12 +4,12 @@
   "description": "Wistia uploader using Angular one framework.",
   "main": "app.js",
   "scripts": {
-    "test": "mocha"
+    "test": "./node_modules/karma/bin/karma start"
   },
   "author": "Mike",
   "license": "MIT",
   "devDependencies": {
-    "chai": "^4.0.2",
-    "mocha": "^3.4.2"
+    "jasmine": "^2.6.0",
+    "karma": "^1.7.0"
   }
 }
